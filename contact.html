@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <h1>Contact Me</h1>
+    <form id="contact-form" action="submit.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit">Submit</button>
+    </form>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      // Initialize Email.js with your actual user ID
+      emailjs.init("angeiracya@gmail.com"); // Replace with your Email.js user ID
+    
+      document.addEventListener('DOMContentLoaded', function () {
+        const contactForm = document.getElementById('contact-form');
+    
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            // Basic validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+    
+            if (!name || !email || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+    
+            // Send email using Email.js
+            emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", {
+              to_name: "Recipient's Name", // Replace with the recipient's name
+              from_name: name,
+              from_email: email,
+              message_html: message,
+            })
+            .then(function (response) {
+              console.log("Email sent:", response);
+              alert('Form submitted successfully! Message sent via email.');
+              contactForm.reset();
+            })
+            .catch(function (error) {
+              console.error("Email error:", error);
+              alert("Message could not be sent via email. Please try again later.");
+            });
+        });
+      });
+    </script>
+</body>
+</html>

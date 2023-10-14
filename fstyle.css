@@ -1,0 +1,55 @@
+*{
+ margin: 0;
+ padding: 0;
+ outline: none;
+text-decoration: none;
+box-sizing: border-box;
+ 
+}
+div.signup-form{
+    background-color: #202043;
+    width: 273px;
+    position: relative;
+    left: 20em;
+    bottom: 277px;
+    height: 323px
+}
+div.login-form{
+    background-color: #202043;
+    width: 245px;
+    top: 43px;
+    height: 20em;
+    position: relative;
+    left: 60px;
+    color: white;
+}
+div.form-container{
+    background-color: #4ea0ad;
+    height: 26em;
+    width: 42em;
+    position: relative;
+    top: 63px;
+    left: 12px;
+}
+button{
+    position: relative;
+    left: 19px;
+    padding: 7px;
+    bottom: 47px;
+    width: 187px;
+    cursor: pointer;
+    border-radius: 11px;
+    background-color: #34c393;
+}
+
+input{
+    position: relative;
+    left: 19px;
+    padding: 7px;
+    width: 214px;
+    background-color: #2f2f51;
+    border-radius: 16px;
+}
+
+
+
